@@ -1,0 +1,21 @@
+
+<%= form_with url: telzir_result_path do |form| %>
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered table-dark table-hover">
+                <tr>
+                    <th scope="col">Origem</th>
+                    <th scope="col">Destino</th>
+                    <th scope="col">Tempo</th>
+                    <th scope="col">Plano</th>
+                </tr>
+                <tr>
+                    <td scope="row"><%= form.number_field :origin, class:"form-control", placeholder:"000" %></td>
+                    <td scope="row"><%= form.number_field :destination, class:"form-control", placeholder:"000" %></td>
+                    <td scope="row"><%= form.number_field :time, class:"form-control", placeholder:"minutos" %></td>
+                    <td scope="row"><%= select_tag(:plan, options_for_select([['FaleMais 30', 1], ['FaleMais 60', 2],  ['FaleMais 120', 3]], 1)) %>
+                    </td>
+                </tr>
+        </table>
+    <%= form.submit "Confirmar", class:"btn btn-primary btn-salvar btn-dark" %>
+        </div>
+<% end %>
