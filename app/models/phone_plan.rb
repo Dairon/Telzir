@@ -1,0 +1,2 @@
+class PhonePlan < ApplicationRecord
+end

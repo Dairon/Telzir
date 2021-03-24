@@ -1,0 +1,2 @@
+class OriginDestinationFare < ApplicationRecord
+end
