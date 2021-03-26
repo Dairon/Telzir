@@ -9,9 +9,9 @@
                     <th scope="col">Plano</th>
                 </tr>
                 <tr>
-                    <td scope="row"><%= form.number_field :origin, class:"form-control", placeholder:"000" %></td>
-                    <td scope="row"><%= form.number_field :destination, class:"form-control", placeholder:"000" %></td>
-                    <td scope="row"><%= form.number_field :time, class:"form-control", placeholder:"minutos" %></td>
+                    <td scope="row"><%= form.number_field :origin, class:"form-control", placeholder:"000", max:"999", required:true %></td>
+                    <td scope="row"><%= form.number_field :destination, class:"form-control", placeholder:"000", max:"999", required:true %></td>
+                    <td scope="row"><%= form.number_field :time, class:"form-control", placeholder:"minutos", required:true %></td>
                     <td scope="row"><%= select_tag(:plan, options_for_select([['FaleMais 30'], ['FaleMais 60'],  ['FaleMais 120']], 1)) %>
                     </td>
                 </tr>
