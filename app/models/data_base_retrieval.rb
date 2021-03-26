@@ -1,6 +1,8 @@
 class DataBaseRetrieval
     def rectify_area_code(code)
-        if code.length == 1
+        if code.length == 0
+            rectified_code = "000"+ code
+        elsif code.length == 1
             rectified_code = "00"+ code
         elsif code.length == 2
             rectified_code = "0"+ code
