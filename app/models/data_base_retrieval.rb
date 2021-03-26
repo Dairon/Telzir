@@ -1,10 +1,4 @@
 class DataBaseRetrieval
-    def initialize(origin, destination, plan)
-        @origin = rectify_area_code origin
-        @destination = rectify_area_code destination
-        @plan = plan
-    end
-
     def rectify_area_code(code)
         if code.length == 1
             rectified_code = "00"+ code
@@ -15,15 +9,11 @@ class DataBaseRetrieval
         end
     end
 
-    def search_plan
-        phone_plan = PhonePlan.find_by(name: @plan)
+    def search_plan(plan)
+        phone_plan = PhonePlan.find_by(name: plan)
     end
 
-    def search_fare
-        origin_destination_fare = OriginDestinationFare.find_by(origin: @origin, destination: @destination)
-    end
-
-    def to_s
-        "Fare: #{search_fare.fare}, Destination: #{@destination}, Plan: #{self.search_plan}"
+    def search_fare(origin, destination)
+        origin_destination_fare = OriginDestinationFare.find_by(origin: rectify_area_code(origin), destination: rectify_area_code(destination))
     end
 end
