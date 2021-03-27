@@ -12,7 +12,7 @@
                     <td scope="row"><%= form.number_field :origin, class:"form-control", placeholder:"000", max:"999", required:true %></td>
                     <td scope="row"><%= form.number_field :destination, class:"form-control", placeholder:"000", max:"999", required:true %></td>
                     <td scope="row"><%= form.number_field :time, class:"form-control", placeholder:"minutos", required:true %></td>
-                    <td scope="row"><%= select_tag(:plan, options_for_select( @plans, 1)) %>
+                    <td scope="row"><%= select_tag(:plan, options_for_select( @plans, 1), {class:"form-control" }) %>
                     </td>
                 </tr>
         </table>
