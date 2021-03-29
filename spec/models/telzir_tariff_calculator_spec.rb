@@ -1,7 +1,41 @@
 require 'rails_helper'
 
 RSpec.describe TelzirTariffCalculator, type: :model do
-    context "Validate if cost of time with plan is correct" do
+    context "Validates if the cost is being correctly formated" do
+        let(:origin_destination_fare) {
+            OriginDestinationFare.new(origin: "011",destination: "016",fare: 1.90)
+    }
+        let(:phone_plan) {
+            PhonePlan.new(name:"FaleMais 30",free_time: 30)
+    }
+        it "is correct for integer" do
+            telzir_tariff_calculator = TelzirTariffCalculator.new(origin_destination_fare, phone_plan, 20)
+            cost = telzir_tariff_calculator.format_cost(20)
+            expect(cost).to eq("$ 20.00")
+        end
+
+        it "is correct for decimal" do
+            telzir_tariff_calculator = TelzirTariffCalculator.new(origin_destination_fare, phone_plan, 20)
+            cost = telzir_tariff_calculator.format_cost(2.228)
+            expect(cost).to eq("$ 2.23")
+        end
+    end
+
+    context "Validates if the increase in fare with plan is working" do
+        let(:origin_destination_fare) {
+            OriginDestinationFare.new(origin: "011",destination: "016",fare: 1.90)
+    }
+        let(:phone_plan) {
+            PhonePlan.new(name:"FaleMais 30",free_time: 30)
+    }
+        it "is correct for fare of $ 1.9" do
+            telzir_tariff_calculator = TelzirTariffCalculator.new(origin_destination_fare, phone_plan, 20)
+            fare = telzir_tariff_calculator.increase_on_fare_with_plan
+            expect(fare).to eq(2.09)
+        end
+    end
+
+    context "Validate if cost for time is correct" do
 
         #Teste for the first case
 
@@ -9,7 +43,7 @@ RSpec.describe TelzirTariffCalculator, type: :model do
             OriginDestinationFare.new(origin: "011",destination: "016",fare: 1.90)
     }
         let(:phone_plan) {
-            PhonePlan.new(name:"FaleMais 30",free_time: 20)
+            PhonePlan.new(name:"FaleMais 30",free_time: 30)
     }
 
         it "is correct for first case with plan" do
