@@ -14,7 +14,7 @@ class TelzirController < ApplicationController
         @plan = params["plan"]
         origin_destination_fare = DataBaseRetrieval.new.search_fare(@origin, @destination)
         phoneplan = DataBaseRetrieval.new.search_plan(@plan)
-        telzir_tariff_calculator = TelzirTariffCalculator.new(origin_destination_fare, phoneplan, @time)
+        telzir_tariff_calculator = TariffCalculator.new(origin_destination_fare, phoneplan, @time)
         @cost_with_plan = telzir_tariff_calculator.cost_with_plan
         @cos_without_plan = telzir_tariff_calculator.cost_without_plan
     end

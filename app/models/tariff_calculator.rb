@@ -1,4 +1,4 @@
-class TelzirTariffCalculator
+class TariffCalculator
     def initialize(origin_destination_fare, phoneplan, time)
         @origin_destination_fare = origin_destination_fare
         @free_time = phoneplan.free_time
