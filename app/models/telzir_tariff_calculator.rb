@@ -20,7 +20,7 @@ class TelzirTariffCalculator
         if @origin_destination_fare.nil?
             cost = "-"
         else
-            cost = increase_on_fare_with_plan * total_call_tima_with_plan
+            cost = increase_on_fare_with_plan * total_call_time_with_plan
             format_cost(cost)
         end
     end
@@ -29,7 +29,7 @@ class TelzirTariffCalculator
         fare = @origin_destination_fare.fare * @percentage_of_increase_beyond_plan_limit
     end
     
-    def total_call_tima_with_plan
+    def total_call_time_with_plan
         total_time = @time - @free_time
         if total_time <= 0
             total_time = 0
