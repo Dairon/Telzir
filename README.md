@@ -1,24 +1,55 @@
-# README
+# Telzir
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Telzir is an application that calculates the cost o phone call.
 
-Things you may want to cover:
+## Ruby Version
 
-* Ruby version
+3.0.0
 
-* System dependencies
+## Rails Version
 
-* Configuration
+6.1.3
 
-* Database creation
+## Installation
 
-* Database initialization
+```bash
+sudo apt install rbenv
+```
+```bash
+rbenv install 3.0.0
+```
+```bash
+rbenv global 3.0.0
+```
+```bash
+ gem install bundler
+```
+```bash
+gem install rails -v 6.1.3
+```
+```bash
+rbenv rehash
+```
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+## Usage
 
-* Deployment instructions
-
-* ...
+```bash
+rails db:migrate
+```
+```bash
+rails db:seed
+```
+```bash
+bundle install
+```
+```bash
+npm install
+```
+```bash
+rails server
+```
+## Test
+```bash
+rspec
+```
