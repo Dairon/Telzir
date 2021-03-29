@@ -1,3 +1,6 @@
+require 'data_base_retrieval'
+
+
 class TelzirController < ApplicationController
     def index
         phone_plans = PhonePlan.order(free_time: :asc)

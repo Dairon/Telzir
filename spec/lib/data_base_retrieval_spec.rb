@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'data_base_retrieval'
 
 RSpec.describe DataBaseRetrieval, type: :model do
     context "Validate if plans are being correctly retreaved" do
